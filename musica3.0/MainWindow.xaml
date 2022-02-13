@@ -1,0 +1,179 @@
+﻿<Window x:Class="musica3._0.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:musica3._0"
+        mc:Ignorable="d"
+        Title="303 Music" Height="586.4" Width="903.158" MinHeight="586.4" MinWidth="903.158" Icon="images/back.png">
+
+    <Grid Background="#292929">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2.5*"/>
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="7*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1" Grid.Column="0" VerticalAlignment="Stretch" Margin="5,2,2,5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="32"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Border CornerRadius="14" BorderBrush="MediumPurple" Margin="4,0,4,4" Grid.Row="0" BorderThickness="2">
+                <TextBox Name="searchBox" HorizontalAlignment="Stretch" Height="23" TextWrapping="Wrap"
+                     TextChanged="searchBox_TextChanged" Background="Transparent" Foreground="White" BorderBrush="Transparent" Margin="6,0"  SelectionBrush="Transparent" TextAlignment="Center" VerticalAlignment="Center">
+                </TextBox>
+            </Border>
+            <Border Margin="4,0,4,0" BorderBrush="MediumPurple" Background="#474747" BorderThickness="2" Grid.Row="1"  DockPanel.Dock="Bottom" VerticalAlignment="Stretch">
+                <Grid Margin="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="2*"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="6*"></RowDefinition>
+                        <RowDefinition Height="8"></RowDefinition>
+                        <RowDefinition Height="50" ></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="6,0">
+                        <Image Width="30" Height="30" HorizontalAlignment="Left" Source="images/internet.png"></Image>
+                        <Label Content="DOWNLOAD FROM YOUTUBE" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" FontFamily="Consolas" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0" Grid.Row="1">
+                        <StackPanel Orientation="Horizontal" Margin="0" HorizontalAlignment="Center">
+                            <Label Foreground="White" Content="URL:"></Label>
+                            <TextBox Name="txtUrl" BorderBrush="White" Margin="0" Width="163" Foreground="White"></TextBox>
+                        </StackPanel>
+                        <Image Name="btnDownload" Height="40" Width="80" Margin="0,4,0,6" Source="images/downloadV.png" Stretch="UniformToFill" IsMouseDirectlyOverChanged="Image_IsMouseDirectlyOverChanged_1" MouseLeftButtonDown="btnDownload_MouseLeftButtonDown"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="6,0">
+                        <Image Width="30" Height="30" HorizontalAlignment="Left" Source="images/home.png"></Image>
+                        <Label Content="LOCAL PLAYLISTS" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" FontFamily="Consolas" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" Grid.Row="3">
+
+                        <ListView Background="Transparent" SelectionChanged="ListView_SelectionChanged" Name="lxPlaylist" Margin="0">
+                            <!--<ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ListViewItem>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Rectangle Width="4" Height="20" Fill="MediumPurple"></Rectangle>
+                                        <Label Content="{Binding Path=nomeP}" Foreground="White"></Label>
+                                    </StackPanel>
+                                </ListViewItem> 
+                            </DataTemplate>
+                        </ListView.ItemTemplate> -->
+                        </ListView>
+
+                    </StackPanel>
+                    <GridSplitter HorizontalAlignment="Stretch" Height="2" Grid.Row="4" Margin="3,3,3,0"></GridSplitter>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center" Grid.Row="5" Margin="0">
+                        <Image x:Name="btnAddP" Source="images/addV.png" Height="40" Width="40" IsMouseDirectlyOverChanged="Image_IsMouseDirectlyOverChanged" MouseLeftButtonDown="btnAddP_MouseLeftButtonDown" ></Image>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Menu Grid.Row="0" Grid.ColumnSpan="3" Grid.Column="0" Margin="0,0,0,5" HorizontalAlignment="Stretch" Background="MediumPurple">
+            <MenuItem Header="Files" Foreground="White">
+                <MenuItem BorderBrush="MediumPurple" Header="Add from memory" HorizontalAlignment="Stretch" Width="Auto" Click="MenuItem_Click"  Background="MediumPurple"/>
+                <MenuItem BorderBrush="MediumPurple" Header="Delete all paylists" HorizontalAlignment="Stretch" Width="Auto" Click="MenuItem_Click_1"  Background="MediumPurple"/>
+                <MenuItem BorderBrush="MediumPurple" Header="Delete all music tracks" HorizontalAlignment="Stretch" Width="Auto" Click="MenuItem_Click_5"  Background="MediumPurple"/>
+            </MenuItem>
+            <MenuItem Header="Music" Foreground="White">
+                <MenuItem BorderBrush="MediumPurple" Header="Play" HorizontalAlignment="Stretch" Width="Auto" Click="MenuItem_Click_2"  Background="MediumPurple"></MenuItem>
+                <MenuItem BorderBrush="MediumPurple" Header="Pause" HorizontalAlignment="Stretch" Width="Auto" Click="MenuItem_Click_3"  Background="MediumPurple"></MenuItem>
+                <MenuItem BorderBrush="MediumPurple" Header="Stop" HorizontalAlignment="Stretch" Width="Auto" Click="MenuItem_Click_4"  Background="MediumPurple"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <GridSplitter  Grid.Row="1" Grid.Column="1" Margin="5,2,5,2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+        <Border Grid.Row="1" Grid.Column="2"  BorderThickness="2" BorderBrush="MediumPurple" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinWidth="490" Margin="5,5,5,5" >
+            <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#474747">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="64"/>
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="128"/>
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="24"/>
+                        <RowDefinition Height="36"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Row="1" Grid.Column="0"  HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Horizontal">
+                        <Image Name="btnShuffle" Source="images/shuffleV.png" Width="36" Height="36" Margin="4" VerticalAlignment="Center" PreviewMouseLeftButtonDown="btnShuffle_PreviewMouseLeftButtonDown"></Image>
+                        <Image Name="btnBack" Source="images/backV.png" Width="50" Height="50" Margin="4,0"  VerticalAlignment="Center" IsMouseDirectlyOverChanged="btnBack_IsMouseDirectlyOverChanged" PreviewMouseLeftButtonDown="btnBack_PreviewMouseLeftButtonDown"></Image>
+                        <Image Name="btnPausa" Source="images/pausaV.png" Width="36" Height="36" Margin="4,0" IsMouseDirectlyOverChanged="btnPausa_IsMouseDirectlyOverChanged" PreviewMouseLeftButtonDown="btnPausa_PreviewMouseLeftButtonDown"></Image>
+                        <Image Name="btnNext" Source="images/nextV.png" Width="50" Height="50" Margin="4,0"  VerticalAlignment="Center" IsMouseDirectlyOverChanged="btnNext_IsMouseDirectlyOverChanged" PreviewMouseLeftButtonDown="btnNext_PreviewMouseLeftButtonDown"/>
+                        <Image Name="btnRepeat" Source="images/repeatV.png" Margin="4" Width="36" Height="36" VerticalAlignment="Center" PreviewMouseLeftButtonDown="btnRepeat_PreviewMouseLeftButtonDown"></Image>
+                    </StackPanel>
+
+                    <Slider Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Name="sliderTempo" VerticalAlignment="Center" Height="19"  Thumb.DragCompleted="sliderControl_DragCompleted"  Thumb.DragStarted="sliderControl_DragStarted"  Margin="2,0,2,0" Minimum="0" Maximum="100"/>
+                    <Label Grid.Row="1" Content="tempo" x:Name="txtDurata" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="White" />
+                    <StackPanel Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,2,5,0" Orientation="Horizontal">
+                        <Label DockPanel.Dock="Left" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,-6,4,0"  Content="Volume" Foreground="White" />
+                        <Slider DockPanel.Dock="Right" Name="volumeSlider" Minimum="0" Maximum="100" VerticalAlignment="Top" Height="25" Thumb.DragCompleted="volumeSlider_DragCompleted" HorizontalAlignment="Right" Width="58" />
+                    </StackPanel>
+                </Grid>
+                <Separator Grid.Row="1" Margin="0,5,0,5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                <Grid Grid.Row="2" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="154*"/>
+                        <ColumnDefinition Width="285*"/>
+                        <ColumnDefinition Width="200.8"/>
+                    </Grid.ColumnDefinitions>
+                    <Border BorderBrush="White" BorderThickness="2" Margin="17,4,17.6,4" Width="116" Height="118">
+                        <Image Name="imgBrano" DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Center" Source="images/bg.jpg" Stretch="UniformToFill" Width="120" Height="120"/>
+                    </Border>
+                    <StackPanel  Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Stretch" Grid.ColumnSpan="2" Margin="0.4,0,0,0" Width="308">
+                        <Label x:Name="txtTitolo" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Verdana" FontSize="13"  Margin="0,15,0,0" Width="308" Foreground="White"/>
+                        <Separator  Width="220" Height="15" HorizontalAlignment="Left" Margin="13,0,0,0"/>
+                        <Label x:Name="txtAutore" HorizontalAlignment="Left"  VerticalAlignment="Center" FontFamily="Verdana" FontSize="12" Width="308" Foreground="White"/>
+                        <Separator  Width="220" Height="15" HorizontalAlignment="Left" Margin="13,0,0,0"/>
+                        <Label x:Name="txtAlbum" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="Verdana" FontSize="12"  MinWidth="308" Foreground="White"/>
+                        <Separator  Width="220" Height="15" HorizontalAlignment="Left" Margin="13,0,0,0"/>
+                    </StackPanel>
+                    <Label x:Name="lblPlaylist" Grid.Row="0" Grid.Column="1" Content="Playlist" FontFamily="Verdana" FontSize="14" HorizontalContentAlignment="Right"  VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="201" Foreground="White" Height="25" Margin="0,0,0.2,0" Grid.ColumnSpan="2" />
+
+                </Grid>
+                <Separator Grid.Row="3" Foreground="Black" Margin="0,5,0,5"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                <ListView Name="lxLista" Grid.Row="4"  HorizontalAlignment="Stretch" BorderThickness="0" Background="Transparent" Foreground="White" FontSize="14" SelectionMode="Single" SelectionChanged="lxLista_SelectionChanged" Margin="0">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn
+				                    Width="200"
+									Header="Song name"
+									DisplayMemberBinding="{Binding Path=titolo}"></GridViewColumn>
+                            <GridViewColumn
+									Width="180"
+									Header="Artist"
+									DisplayMemberBinding="{Binding Path=autore}"></GridViewColumn>
+                            <GridViewColumn
+									Width="100"
+									Header="Duration"
+									DisplayMemberBinding="{Binding Path=durata}"></GridViewColumn>
+                            <GridViewColumn
+									Width="110"
+									Header="Album"
+									DisplayMemberBinding="{Binding Path=album}"></GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+
+        </Border>
+
+
+    </Grid>
+</Window>

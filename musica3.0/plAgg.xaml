@@ -1,0 +1,52 @@
+﻿<Window x:Class="musica3._0.plAgg"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:musica3._0"
+        mc:Ignorable="d"
+        Title="Crea la tua Playlist" Height="300" Width="470" MinHeight="300" MinWidth="470" MaxHeight="300" MaxWidth="470" Closed="Window_Closed">
+    <Grid Background="#292929">
+        <Border Margin="10" BorderBrush="MediumPurple" BorderThickness="2" Background="#474747">
+            <Grid VerticalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition ></RowDefinition>
+                    <RowDefinition Height="5*"></RowDefinition>
+                    
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Add your playlist" FontSize="14" FontWeight="Bold" Foreground="White" Margin="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2" ></Label>
+                <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <StackPanel Margin="3" Orientation="Vertical">
+                        <Label Content="Name" Foreground="White"></Label>
+                        <Border CornerRadius="10" BorderThickness="2" BorderBrush="White">
+                            <TextBox Name="txtNome" Background="Transparent" BorderThickness="0" Margin="6,-2" Foreground="White" ></TextBox>
+                        </Border>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="150">
+                        <Image Source="images/creaV.png" x:Name="btnCrea" Width="80" Height="80" Margin="0,33" IsMouseDirectlyOverChanged="btnCrea_IsMouseDirectlyOverChanged" MouseLeftButtonDown="btnCrea_MouseLeftButtonDown"/>
+                        
+                    </StackPanel>
+                </StackPanel>
+                <ListView Name="lxLista" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" BorderThickness="0" Background="Transparent" Foreground="White" FontSize="10" SelectionMode="Multiple">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn
+				                    Width="160"
+									Header="Song name"
+									DisplayMemberBinding="{Binding Path=titolo}"></GridViewColumn>
+                            <GridViewColumn
+									
+									Header="Artist"
+									DisplayMemberBinding="{Binding Path=autore}"></GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
