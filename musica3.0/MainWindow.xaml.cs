@@ -88,8 +88,13 @@ namespace musica3._0
         {
             if (mediaPlayer.Source != null && !pausa)
             {
-                sliderTempo.Value = (mediaPlayer.Position.TotalSeconds / double.Parse(mediaPlayer.NaturalDuration.TimeSpan.TotalSeconds.ToString())) * 100;
-                txtDurata.Content = mediaPlayer.Position.Minutes + ":" + mediaPlayer.Position.Seconds + "/" + mediaPlayer.NaturalDuration.TimeSpan.Minutes + ":" + mediaPlayer.NaturalDuration.TimeSpan.Seconds;
+                try
+                {
+                    sliderTempo.Value = (mediaPlayer.Position.TotalSeconds / double.Parse(mediaPlayer.NaturalDuration.TimeSpan.TotalSeconds.ToString())) * 100;
+                    txtDurata.Content = mediaPlayer.Position.Minutes + ":" + mediaPlayer.Position.Seconds + "/" + mediaPlayer.NaturalDuration.TimeSpan.Minutes + ":" + mediaPlayer.NaturalDuration.TimeSpan.Seconds;
+                }
+                catch { }
+                      
 
                 if (sliderTempo.Value >= 99)//(mediaPlayer.Position.TotalSeconds >= double.Parse(mediaPlayer.NaturalDuration.TimeSpan.TotalSeconds.ToString()))
                 { 
