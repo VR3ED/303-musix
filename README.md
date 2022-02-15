@@ -9,6 +9,8 @@ WARNING: in order for it to forw you need:
 
 IMAGES:
 
-![alt text](https://github.com/VR3ED/303-musix/blob/main/screenshots/Cattura.PNG?raw=true)         ![alt text](https://github.com/VR3ED/303-musix/blob/main/screenshots/Cattura2.PNG?raw=true)
+![alt text](https://github.com/VR3ED/303-musix/blob/main/screenshots/Cattura.PNG?raw=true) 
+
+![alt text](https://github.com/VR3ED/303-musix/blob/main/screenshots/Cattura2.PNG?raw=true)
 
 
